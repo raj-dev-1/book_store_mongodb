@@ -10,13 +10,6 @@ const getUserByEmail = async (email) => {
     }
 };
 
-const deletefile = async (file) => {
-    try {
-      await fs.unlinkSync(file.path);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   
 
-module.exports = { getUserByEmail , deletefile }
+module.exports = { getUserByEmail }

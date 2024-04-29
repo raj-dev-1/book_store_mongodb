@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors'); 
+require("dotenv").config();
 const app = express();
-const url ='mongodb://localhost:27017/first';
-const authRouter = require('./rotues/auth.routes.js');
-const bookRouter = require('./rotues/book.routes.js');
+const authRouter = require('./routes/auth.routes.js');
+const bookRouter = require('./routes/book.routes.js');
 const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db.js');
 const port = 5000;
@@ -20,7 +20,7 @@ app.use('/book', bookRouter);
 
 app.listen(port, async () => {
     try {
-        await connectDB(url);
+        await connectDB();
         console.log("server established successfully on port " + port);
     } catch (error) {
         console.log(error);

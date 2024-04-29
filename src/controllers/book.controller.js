@@ -102,7 +102,7 @@ const updateBook = async (req,res) => {
             const errors = Object.values(error.errors).map((err) => err.message);
             return res.status(400).json({ errors });
           }
-          return res.status(500).json({ message: bookMassage.error.genericError });      
+          return res.status(500).json({ message: "An error occurred. please try again later" });      
     }
 }
 

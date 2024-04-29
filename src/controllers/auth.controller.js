@@ -1,8 +1,16 @@
 const User = require("../models/user.model.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { getUserByEmail, deletefile } = require("../services/user.service.js");
+const { getUserByEmail } = require("../services/user.service.js");
 const secretKey = "djvndjd3243j3n543jwjsdfksdsn";
+
+const deletefile = async (file) => {
+  try {
+    await fs.unlinkSync(file.path);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const uploadImg = async (req, res) => {
     try {
