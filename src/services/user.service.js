@@ -1,12 +1,9 @@
-const User = require("../models/user.model");
+const User = require("../models/user.model.js");
 const fs = require("fs");
 const getUserByEmail = async (email) => {
     try {
         const user = await User.findOne({ email });
-       if(user){
-         return true
-       }
-       return false;
+        return user ? true : false;
     } catch (error) {
         console.log("error - ", error.message)
         throw new Error(error.message)

@@ -1,4 +1,4 @@
-const Book = require('../models/book.model');
+const Book = require('../models/book.model.js');
 
 const getBook = async (req, res) => {
     try {
@@ -31,7 +31,7 @@ const getBook = async (req, res) => {
             .exec();
 
         return res.status(200).json({
-            message: "The book has been retrievedasdasd successfully",
+            message: "The book has been retrieved successfully",
             bookList: bookList,
         });
     } catch (error) {
@@ -42,7 +42,7 @@ const getBook = async (req, res) => {
 const createBook = async (req, res) => {
     try {
         if (!req.body)
-            return res.status(400).json({ message: "please fill the details" });
+            return res.status(400).json({ message: "Please fill the details" });
 
         const { id } = req.user.data._id;
         const {
